@@ -72,19 +72,16 @@ const displayController = (()=>{
     const displayWinnerId = document.getElementById('winner');
     turn.innerText = `Turn: ${gameBoard.player01.name} turn`
     turn.style.color =  '#003B46';
-    //console.log(gameBoard.player01.name, 'turn');
 
     const switchTurn = () => {
         let counter = 0;
         return (idx)=>{
             if(counter % 2 === 0){
-                //console.log(gameBoard.player02.name, 'turn');
                 gameBoard.draw(gameBoard.markersArr[idx], gameBoard.player01, gameBoard.player01.color);
                 turn.innerText = `Turn: ${gameBoard.player02.name} turn`;
                 turn.style.color = gameBoard.player02.color;
                 counter++;
             }else{
-                //console.log(gameBoard.player01.name, 'turn')
                 gameBoard.draw(gameBoard.markersArr[idx], gameBoard.player02, gameBoard.player02.color)
                 turn.innerText = `Turn: ${gameBoard.player01.name} turn`;
                 turn.style.color =  '#003B46';
@@ -97,19 +94,15 @@ const displayController = (()=>{
        
         
             if((gameBoard.player01Marks.length || gameBoard.player02Marks.length) >= 3){
-                //console.log('Board:', gameBoard.board)
-                //console.log('Checking initiated ...');    
+                
                 let board = 9 + gameBoard.board.length ;
-                //console.log(board)
                 
                 for(let i=0; i < board;i++){
-                    //console.log(gameBoard.player01Marks)
-                    //console.log(gameBoard.player02Marks)
+                    
                     if(gameBoard.winningCombinations[i] != undefined){
                         let resultX = gameBoard.player01Marks.filter(element => gameBoard.winningCombinations[i].includes(element));
                         let resultO = gameBoard.player02Marks.filter(element => gameBoard.winningCombinations[i].includes(element));
-                        //console.log(resultX)
-                        //console.log(resultO)
+                        
                         if(gameBoard.board.length < 9){
                             if(resultX.length === 3){
                                 console.log(resultX)
@@ -131,28 +124,19 @@ const displayController = (()=>{
                         }
 
                         else if(gameBoard.board.length === 9){
-                                //console.log(resultX)
-                                //console.log(resultO)
-                                //console.log(gameBoard.winningCombinations[i])
                             if(resultX.length === 3){
-                                //console.log(resultX)
-                                //console.log(resultO)
-                                //console.log('player01 wins')
                                 displayWinnerId.innerHTML = `<h2 id="winner">Winner: <span>${gameBoard.player01.name}</span></h2>`;
                                 turn.remove();
                                 restarGameFunc();
                                 return
 
                             }else if(resultO.length === 3){
-                                //console.log(resultO)
-                                //console.log('player02 wins')
                                 displayWinnerId.innerHTML = `<h2 id="winner" style= "color:${gameBoard.player02.color}">Winner: <span>${gameBoard.player02.name}</span></h2>`;
                                 turn.remove();
                                 restarGameFunc();
                                 return
     
                             }else{
-                                //console.log("it's a tie");
                                 displayWinnerId.innerHTML = `<h2 id="winner" style ="color: #fff"><span>Tie</span></h2>`;
                                 turn.remove();
                                 restarGameFunc();
