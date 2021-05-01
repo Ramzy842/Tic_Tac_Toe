@@ -7,6 +7,7 @@
 
 .container header{
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     background: #66A5AD;
@@ -28,10 +29,6 @@ header h2{
     
 }
 
-body{
-    background: #07575B ;
-    min-height: 100vh;
-}
 
 .overlay{
     display: none;
@@ -42,7 +39,14 @@ body{
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 9;
+    z-index: 8;
+    background-size: contain;
+    
+}
+
+.gameBoard{
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 main{
@@ -67,13 +71,10 @@ main p {
 
 .restartGame{
     display: none;
-    position: absolute;
-    right: 15rem;
-    bottom: 20rem;
     padding: 1rem 5rem;
     font-size: 2rem;
     cursor: pointer;
-    z-index: 10;
+    z-index: 20;
     background: linear-gradient(to bottom right, rgb(26, 68, 206), rgb(181, 14, 223));
     border: none;
     color: #fff;
@@ -83,10 +84,172 @@ main p {
 .restartGame:hover{
     background: linear-gradient(to bottom right, rgb(26, 68, 206), rgb(71, 0, 88));
     border: none;
-    color: #fff;
 }
 
 #winner{
     color: #003B46;
     font-size: 2rem;
+}
+
+/*MEDIA QUERIES*/
+
+@media screen and (min-width: 320px){
+    .container header{
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3rem 1.5rem;
+        min-width: 100vw;
+    }
+
+    header h1{
+        font-size: 2rem;
+    }
+
+    header h2{
+        font-size: 1.2rem;
+    }
+
+    body{
+        background: #07575B;
+    }
+
+    .gameBoard{
+        display: grid;
+        grid-template-rows: 1fr;
+        justify-items: center;
+        align-self: center;
+        background:  #07575B;
+    }
+
+    main{
+        display: grid;
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+        padding-top: 4rem;
+        padding-bottom: 1rem;
+        grid-gap: 10px;
+    }
+
+    main p{
+        font-size: 2.5rem;
+    }
+
+    .restartGame{
+        display: none;
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+        border-radius: 3px;
+        
+    }
+    .second-container{
+        
+        z-index: 10;
+    }
+    #winner{
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (min-width: 480px){
+    .container header{
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2rem 0.5rem;
+    }
+    
+
+    body{
+        background: #07575B;
+        
+    }
+
+    .gameBoard{
+        display: grid;
+        grid-template-rows: 1fr;
+        justify-items: center;
+        align-items: center;
+        background: #07575B;
+        
+    }
+
+    main{
+        display: grid;
+        grid-template-columns: repeat(3, 90px);
+        grid-template-rows: repeat(3, 90px);
+        justify-content: center;
+        padding-top: 4rem;
+        grid-gap: 10px;
+    }
+
+    main p{
+        font-size: 2.2rem;
+    }
+
+    .restartGame{
+        display: none;
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+        border-radius: 3px;
+    }
+    .second-container{
+        
+        z-index: 10;
+    }
+
+    #winner{
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .container header{
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 3rem 1.5rem;
+        min-width: 100vw;
+    }
+
+    header h1{
+        font-size: 2rem;
+    }
+
+    header h2{
+        font-size: 1.2rem;
+    }
+
+    body{
+        background: #07575B;
+    }
+
+    .gameBoard{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        background: #07575B;
+        justify-items: center;
+        margin-left: 14rem;
+    }
+
+    main{
+        display: grid;
+        grid-template-columns: repeat(3, 120px);
+        grid-template-rows: repeat(3, 120px);
+        padding-top: 4rem;
+        grid-gap: 10px;
+    }
+
+    .second-container{
+        justify-self: start;
+        z-index: 10;
+    }
+
+    .restartGame{
+        display: none;
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+        border-radius: 3px;
+    }
+    
+    #winner{
+        font-size: 1.6rem;
+    }
 }

@@ -67,10 +67,12 @@ const gameBoard = (()=>{
  
 
 const displayController = (()=>{
+    const gBoard = document.querySelector('.gameBoard')
+    const restartBtnContainer = document.querySelector('.second-container')
     const turn = document.querySelector('.turn');
     const displayWinner = document.querySelector('#winner span');
     const displayWinnerId = document.getElementById('winner');
-    turn.innerText = `Turn: ${gameBoard.player01.name} turn`
+    turn.innerText = `Turn: ${gameBoard.player01.name} turn`;
     turn.style.color =  '#003B46';
 
     const switchTurn = () => {
@@ -146,10 +148,9 @@ const displayController = (()=>{
     const restarGameFunc = ()=>{
         const overlay = document.querySelector('.overlay');
         const restart = document.querySelector('.restartGame');
-        gameBoard.mainGrid.style.justifyContent = 'flex-start';
-        gameBoard.mainGrid.style.marginLeft = '10rem';
+        
         overlay.style.display = 'block';
-        restart.style.display = 'block';
+        restart.style.display = 'grid';
         restart.addEventListener('click', ()=>{
             location.reload();
         })
