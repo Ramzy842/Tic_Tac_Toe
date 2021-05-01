@@ -105,16 +105,12 @@ const displayController = (()=>{
                         
                         if(gameBoard.board.length < 9){
                             if(resultX.length === 3){
-                                console.log(resultX)
-                                console.log('player01 wins')
                                 displayWinnerId.innerHTML = `<h2 id="winner">Winner: <span>${gameBoard.player01.name}</span></h2>`;
                                 turn.remove();
                                 restarGameFunc();
                                 return
     
                             }else if(resultO.length === 3){
-                                console.log(resultO)
-                                console.log('player02 wins')
                                 displayWinnerId.innerHTML = `<h2 id="winner" style= "color:${gameBoard.player02.color}">Winner: <span>${gameBoard.player02.name}</span></h2>`;
                                 turn.remove();
                                 restarGameFunc();
