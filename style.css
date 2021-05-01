@@ -1,0 +1,94 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins';
+}
+
+.container header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #66A5AD;
+    padding: 1rem 0;
+    
+    
+}
+
+header h1{
+    color: #003B46;
+    font-size: 2.5rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+header h2{
+    font-size: 2rem;
+    font-weight: 700;
+    color: #003B46;
+    letter-spacing: 0.2rem;
+    
+}
+
+body{
+    background: #07575B ;
+    min-height: 100vh;
+}
+
+.overlay{
+    display: none;
+    content: "";
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    justify-content: center;
+    padding-top: 4rem;
+    grid-gap: 10px;
+}
+
+main p {
+    border: 5px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    cursor: pointer;
+    font-weight: 800;
+    
+}
+
+.restartGame{
+    display: none;
+    position: absolute;
+    right: 15rem;
+    bottom: 20rem;
+    padding: 1rem 5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    background: linear-gradient(to bottom right, rgb(26, 68, 206), rgb(181, 14, 223));
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.restartGame:hover{
+    background: linear-gradient(to bottom right, rgb(26, 68, 206), rgb(71, 0, 88));
+    border: none;
+    color: #fff;
+}
+
+#winner{
+    color: #003B46;
+    font-size: 2rem;
+}
