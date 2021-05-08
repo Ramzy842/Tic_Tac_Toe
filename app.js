@@ -238,13 +238,24 @@ let displayController = (()=>{
                 }
             }
         }
-
+        
+    
+   
     const restarGameFunc = ()=>{
         
         const restart = document.querySelector('.restartGame');
         
         overlay.style.display = 'block';
-        restart.style.display = 'grid';
+        restart.style.display = 'flex';
+
+        const btns = document.querySelectorAll('.player_human');
+        const mq01 = window.matchMedia( "(max-width: 768px)" );
+        if(mq01.matches){
+            btns.forEach(btn => {
+                btn.style.display = 'none';
+            })
+        }
+        
         restart.addEventListener('click', ()=>{
             location.reload();
         })
