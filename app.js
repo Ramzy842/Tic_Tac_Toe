@@ -246,7 +246,7 @@ let displayController = (()=>{
         const restart = document.querySelector('.restartGame');
         
         overlay.style.display = 'block';
-        restart.style.display = 'flex';
+        restart.style.display = 'grid';
 
         const btns = document.querySelectorAll('.player_human');
         const mq01 = window.matchMedia( "(max-width: 768px)" );
